@@ -1,12 +1,31 @@
 function setup() {
-  //Setup Code
-  // the p5.js library automatically executes a sequence of functions, like setup(), which should be called by the library, not the programmer.
   createCanvas(400, 400);
-  // background(Math.floor(Math.random() * 256)); //integer between 0 and 255 inclusive, and placed here will only run once
-  frameRate(1); //Run the draw() function once per second
+  background(200);
 }
 
 function draw() {
-  //Draw code
-  background(Math.floor(Math.random() * 256)); //observe that the backgound color changes everytime
+  //simple points
+  point(200, 200);
+
+  // draw an X
+  line(0, 400, 400, 0);
+  line(0, 0, 400, 400);
+
+  // simple rectangle
+  rect(30, 20, 100, 200);
+
+  //simple square
+  square(250, 100, 100);
+
+  //simple ellipse
+  ellipse(150, 200, 150, 100);
+
+  //simple circle
+  circle(300, 150, 75);
+
+  //simple triangle
+  triangle(200, 150, 250, 250, 150, 250);
+
+  //simple quadilateral
+  quad(150, 150, 250, 150, 300, 250, 100, 250);
 }
