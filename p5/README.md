@@ -12,8 +12,10 @@ HTML is used for the content of a web page.
 - createCanvas() function dynamically creates an empty HTML `<canvas>` element to the web page. The function takes two arguments: the width and height of the canvas element in pixels.
 - noCanvas() function to stop p5.js from creating a canvas at the start of the program. This is because p5.js will automatically create an HTML `<canvas>` element that is 100 pixels wide and 100 pixels tall.
 - setup() function is a built-in p5.js function used to set the sketch’s initial state when the sketch begins. It is typically used to create the canvas, set the framerate, or set initial styles (such as stroke and fill color) for the shapes to be drawn in the sketch. It runs only once at the start of the sketch.
-  - creating an HTML <canvas> element in our index.html.
+  - creating an HTML `<canvas>` element in our index.html.
 - the background() function fills the canvas with a solid color
+  - The background() function can be used in the setup() function to set the initial color of the canvas when the sketch begins.
+  - The background() function can also be called in the draw() loop to clear the canvas at the beginning of each frame, which is useful for creating animations that will be introduced in a later lesson.
 - The draw() function is similar to the setup() function in that p5.js will automatically execute it at the right time. The draw() function will run after all the code in the setup() function is complete. Note that like the setup() function, the draw() function should not be explicitly called.
   - Unlike the setup() function, the draw() function will repeatedly execute in what is known as the draw loop. The draw() function is also referred to as the draw() loop because the code block in the function will execute infinitely until the sketch ends by closing the browser window or navigating away from the sketch. The draw loop will also terminate when the noLoop() function is called.
 
@@ -30,8 +32,11 @@ Note: The x and y coordinates for the rect() and square() functions are also kno
 - The circle() function has three parameters: the x and y coordinates for the center, and the width, or the diameter of the circle.
 - The triangle() function takes a total of six arguments or three pairs of x and y coordinates.
 - The quadrilateral shape function, quad(), needs eight arguments, or four pairs of x and y coordinates for each of its four points
-- stroke() and strokeWeight()
-- fill() and no noFill()
+- stroke(). The stroke is the color used to draw lines or the borders around shapes.
+- strokeWeight(). The thickness of strokes can be set with the strokeWeight() function.
+- You can disable the stroke from being drawn by calling the noStroke() function.
+- fill() allows us to set the fill color, or the inside color of a shape. The fill() function must be called prior to calling the shape function.
+- noFill(). To disable the fill of a shape and make the fill transparent, you can call the noFill() function.
 
 ## Flow of events
 
