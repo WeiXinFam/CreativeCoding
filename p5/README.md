@@ -17,6 +17,7 @@ HTML is used for the content of a web page.
   - The background() function can be used in the setup() function to set the initial color of the canvas when the sketch begins.
   - The background() function can also be called in the draw() loop to clear the canvas at the beginning of each frame, which is useful for creating animations that will be introduced in a later lesson.
 - The draw() function is similar to the setup() function in that p5.js will automatically execute it at the right time. The draw() function will run after all the code in the setup() function is complete. Note that like the setup() function, the draw() function should not be explicitly called.
+  - Additionally, the functions placed inside the draw() function will be executed from the top-down.
   - Unlike the setup() function, the draw() function will repeatedly execute in what is known as the draw loop. The draw() function is also referred to as the draw() loop because the code block in the function will execute infinitely until the sketch ends by closing the browser window or navigating away from the sketch. The draw loop will also terminate when the noLoop() function is called.
 
 ### Shape Commands
@@ -32,9 +33,20 @@ Note: The x and y coordinates for the rect() and square() functions are also kno
 - The circle() function has three parameters: the x and y coordinates for the center, and the width, or the diameter of the circle.
 - The triangle() function takes a total of six arguments or three pairs of x and y coordinates.
 - The quadrilateral shape function, quad(), needs eight arguments, or four pairs of x and y coordinates for each of its four points
+
+Style setting functions such as fill(), stroke(), and strokeWeight() must be called before drawing a shape and will be active for subsequent shapes until the functions are called again to change the styles.
+
 - stroke(). The stroke is the color used to draw lines or the borders around shapes.
 - strokeWeight(). The thickness of strokes can be set with the strokeWeight() function.
 - You can disable the stroke from being drawn by calling the noStroke() function.
+
+ways to specify color:
+
+- gray value (0 - 255)
+- RGB values (0 - 255)
+- Named CSS color (like 'purple' and 'yellow')
+- 3 or 6 digit hexadecimal values (like '#FE0' and '#1557FF')
+
 - fill() allows us to set the fill color, or the inside color of a shape. The fill() function must be called prior to calling the shape function.
 - noFill(). To disable the fill of a shape and make the fill transparent, you can call the noFill() function.
 
