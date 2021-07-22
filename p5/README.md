@@ -60,3 +60,9 @@ Let’s take a look at the order of events when an HTML page that includes the p
 1. The p5.js library will automatically call the setup() function and create an HTML <canvas> element.
 
 Learnings: codeacademy
+
+Wall Drawing Projects:
+https://publicdelivery.org/sol-lewitt-wall-drawings/
+
+Generative art:
+https://aiartists.org/generative-art-design
