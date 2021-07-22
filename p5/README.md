@@ -59,6 +59,21 @@ Let’s take a look at the order of events when an HTML page that includes the p
 1. The p5.js library is started, and all built-in p5.js functions can be used in your sketch file.
 1. The p5.js library will automatically call the setup() function and create an HTML <canvas> element.
 
+## Animation
+
+### Basic Info
+
+- Frame
+  - An animation is really just an illusion. Any time we see an animation, we are actually seeing a sequence of frames that give us the illusion of movement. Frames are individual pictures in a sequence of images. When multiple frames are shown at a fast enough rate, our eyes translate and blend them into a single moving image.
+  - one frame is the equivalent to one loop through the draw() function.
+  - Commands:
+    - frameCount to count the number of frames that have been displayed since the program started.
+- Frames Per Second (FPS)
+  - specifies the number of frames displayed every second. When the FPS of animation is lower, it looks like it is in slow motion. When the frame rate is higher, the animation looks like it is being fast-forwarded.
+  - p5.js will automatically run your code at 60 frames per second. A typical animation is between 24 to 30 frames per second.
+  - Commands:
+    - However, you can manipulate the FPS by using the frameRate() function, which will change the number of frames shown per second to the number specified as the function’s argument.
+
 Learnings: codeacademy
 
 Wall Drawing Projects:
