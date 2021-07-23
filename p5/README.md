@@ -75,6 +75,7 @@ Let’s take a look at the order of events when an HTML page that includes the p
     - However, you can manipulate the FPS by using the frameRate() function, which will change the number of frames shown per second to the number specified as the function’s argument.
 - Random
   - random() that includes the first number but exclude the max value.
+  - The noise() function returns a random value based on the Perlin noise. When you call the noise() function, it generates a naturally ordered sequence of random numbers.
 
 Learnings: codeacademy
 
