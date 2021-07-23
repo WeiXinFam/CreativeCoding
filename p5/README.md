@@ -73,6 +73,8 @@ Let’s take a look at the order of events when an HTML page that includes the p
   - p5.js will automatically run your code at 60 frames per second. A typical animation is between 24 to 30 frames per second.
   - Commands:
     - However, you can manipulate the FPS by using the frameRate() function, which will change the number of frames shown per second to the number specified as the function’s argument.
+- Random
+  - random() that includes the first number but exclude the max value.
 
 Learnings: codeacademy
 
