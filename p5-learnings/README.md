@@ -34,11 +34,36 @@ Note: The x and y coordinates for the rect() and square() functions are also kno
 - The triangle() function takes a total of six arguments or three pairs of x and y coordinates.
 - The quadrilateral shape function, quad(), needs eight arguments, or four pairs of x and y coordinates for each of its four points
 
+- The rectMode() and ellipseMode() functions allow you to modify the location from which the shape is drawn by changing how the x and y arguments passed to rect() and ellipse() functions are interpreted.
+  - When the rectMode(CENTER) function is called, the x and y coordinates passed to the rect() function changes to represent the center of the rectangle, instead of the top left corner. Default is rectMode(CORNER)
+  - In p5.js, ellipses are automatically drawn from the shape’s center.
+
 Style setting functions such as fill(), stroke(), and strokeWeight() must be called before drawing a shape and will be active for subsequent shapes until the functions are called again to change the styles.
 
 - stroke(). The stroke is the color used to draw lines or the borders around shapes.
 - strokeWeight(). The thickness of strokes can be set with the strokeWeight() function.
 - You can disable the stroke from being drawn by calling the noStroke() function.
+
+#### Tanslate
+
+There are two ways to move a shape across your canvas.
+
+- Let’s say you wanted to move your rectangle 60 pixels right and down, you can add 60 pixels to the x and y coordinates given to the rect() function.
+- move the p5.js coordinate system itself instead of moving the shape. The translate() function does exactly this—it changes the (0, 0) origin of the p5.js coordinate system to be the location specified as the function’s arguments.
+  - Keep in mind that transformation functions, like translate(), accumulate. This means that the x and y values given to a second translate() function will not represent the exact position of the new origin.
+
+Both ways would change the position of your shape, but the main difference is that instead of moving the shape itself, the translate() function moves the entire sketch’s coordinate system to the new position specified within the parentheses.
+
+#### Rotate
+
+Rotating an element in p5.js means rotating the canvas from its top-left corner at (0, 0). Therefore, all the elements drawn on the coordinate system rotates together with the canvas.
+
+The rotate() function takes one argument—the angle of rotation represented by the angle variable in the above code. By default, the angle of rotation is interpreted as a radian value—a unit of measuring angles. You can also convert a degree value into a radian value by calling the radians() function.
+
+Alternatively, you can specify the unit of measurement of angles by calling the angleMode() function. the angleMode() determines if the value inside the rotate() function is interpreted as either degrees or radians.
+
+- DEGREES
+- RADIANS
 
 ways to specify color:
 
