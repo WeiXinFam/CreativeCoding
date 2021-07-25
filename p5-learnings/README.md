@@ -65,6 +65,25 @@ Alternatively, you can specify the unit of measurement of angles by calling the 
 - DEGREES
 - RADIANS
 
+#### Scale
+
+scale() enlarges the whole p5.js coordinate system, not just the shape. In a sense, the scale() function is like zooming in and out of the canvas. Scale values are written in decimal percentages.
+
+#### Shear
+
+Shear functions skew a shape in a specific direction. The shape is sheared by the angle amount specified as the function’s argument. In p5.js, shapes are sheared in a clockwise direction. If the angle value is negative, the shape will shear in a counter-clockwise direction.
+
+- The shearX() function angles a shape around the x-axis by the amount given as its argument.
+- The shearY() function angles a shape around the y-axis by the amount specified as the argument.
+
+Note that the arguments of the shearX() and shearY() functions are interpreted in radians by default but can be changed calling the angleMode() function before a shear function is called.
+
+#### Push and Pop
+
+By surrounding code blocks with the push() and pop() functions, you can isolate transformations to be applied to targeted elements and not affect any elements that come after it.
+
+The push() function saves the current style settings and transformations, while pop() restores it back to the original settings. Sandwiched in-between push() and pop() are any style and transformation functions intended for one shape, but not for another.
+
 ways to specify color:
 
 - gray value (0 - 255)
