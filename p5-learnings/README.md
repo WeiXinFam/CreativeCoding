@@ -121,6 +121,21 @@ Let’s take a look at the order of events when an HTML page that includes the p
   - random() that includes the first number but exclude the max value.
   - The noise() function returns a random value based on the Perlin noise. When you call the noise() function, it generates a naturally ordered sequence of random numbers.
 
+## Interaction
+
+### Mouse Position
+
+The mouseX and mouseY variables always contain the mouse’s current horizontal and vertical positions, relative to the origin of the canvas. p5.js will continuously check where the mouse is and update mouseX and mouseY to the latest position, making these variables ideal for manipulating elements on the canvas dynamically.
+
+### Mouse Events
+
+The mouse event functions in p5.js work like JavaScript DOM events behind the scenes, in which p5.js waits for an event to happen to run specific mouse event functions.
+
+- The mousePressed() function is called once after every mouse button press over the canvas.
+- We can also use the built-in mouseIsPressed variable to determine whether the mouse is pressed or not.
+- The mouseMoved() function, which can be used to trigger an event every time the mouse moves while the mouse has not been pressed.
+- The mouseClicked() function, which can be used to detect a mouse button press and release over an element.
+
 Learnings: codeacademy
 
 Wall Drawing Projects:
@@ -128,3 +143,6 @@ https://publicdelivery.org/sol-lewitt-wall-drawings/
 
 Generative art:
 https://aiartists.org/generative-art-design
+
+Animation Exercise:
+Bouncing a ball and change colour, size etc
