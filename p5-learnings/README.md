@@ -136,6 +136,28 @@ The mouse event functions in p5.js work like JavaScript DOM events behind the sc
 - The mouseMoved() function, which can be used to trigger an event every time the mouse moves while the mouse has not been pressed.
 - The mouseClicked() function, which can be used to detect a mouse button press and release over an element.
 
+### Distance
+
+The dist() function is a powerful tool for calculating the distance between two points, stationary or dynamic. This function is oftentimes used in conjunction with mouse events. Understanding how and when to use dist() can simplify calculations and make fun and interesting sketches.
+
+### Key Input
+
+The built-in key variable stores alphanumeric characters. More specifically, it holds the value of the most recent key pressed.
+
+The other important key input variable we are going to learn about is the keyCode variable. The keyCode variable stores the decimal value of the ASCII code of the most recently pressed key. It can also be used to detect special keys such as BACKSPACE, DELETE, ENTER, RETURN, TAB, and more.
+
+While the key variable can detect both uppercase and lowercase characters, the keyCode variable is unable to differentiate the ASCII values from each other.
+
+- The built-in variable keyIsPressed evaluates to true when any key is pressed and false otherwise.
+
+- The keyPressed()function is called once every time a key is pressed. Since the function is only called once per key press the code will also only run once per press. Within the function block, it’s possible to test which key has been pressed and to use this value for any purpose.
+
+- The keyReleased() function, which can be used to trigger an event every time a key release is detected.
+
+- The keyTyped() function, which can be used to determine each time a specific key is pressed. Note that the function cannot detect special keys but can distinguish between lower-case and upper-case letters.
+
+- The keyIsDown() function, which can be used to check if a key is currently being pressed.
+
 Learnings: codeacademy
 
 Wall Drawing Projects:
