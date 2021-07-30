@@ -158,6 +158,23 @@ While the key variable can detect both uppercase and lowercase characters, the k
 
 - The keyIsDown() function, which can be used to check if a key is currently being pressed.
 
+### Media
+
+#### Image
+
+- To load an image, use the loadImage() function. It requires one argument—the path to the image in your working directory.
+  - Loading images takes time. In most cases, the loadImage() function won’t finish loading an image before the next lines of code are run—including any code that is supposed to draw the image. Sometimes this is OK, but it can also potentially lead to unintended behavior.
+- After loading an image, we use the image() function to draw it. The function requires three arguments: the p5.js Image element and the x and y positions where the image should be drawn on the canvas.
+- You can also load and draw animated GIFs into the canvas using loadImage() and image(). To have them animate, you specifically need to put them inside the draw() loop. They’re essentially multiple images packed into one, so calling image() in the draw() loop will draw the latest frame of the GIF, allowing it to animate.
+- To solve problems like this(image is not fully loaded before running the next command), p5.js includes the preload() function. Like the setup() and draw() functions, it’s a special function to hold specific kinds of code for our p5.js sketch. Specifically, the preload() function is meant for code that loads external assets, like the loadImage() function.
+
+#### Videos
+
+- To create a p5.js video element, use the createVideo() function. It requires the video file’s path in your working directory. Here, we’ll use a video with the .mp4 format, which is a video file format that’s well-supported across most browsers. Typically, we’ll do this in a place like the preload() function so that we can use it later on in our sketch.
+  - To play a video, you can use the .play() method
+  - To display the video directly within the p5 sketch, we can reuse the image() function
+  - To hide the original HTML video element, we can use the .hide() method
+
 Learnings: codeacademy
 
 Wall Drawing Projects:
