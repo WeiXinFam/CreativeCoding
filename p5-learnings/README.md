@@ -193,6 +193,45 @@ Pixel Manipulation
 - set(): The set() function sets a pixel at a given location on the canvas to a new color.
   - Just calling the set() function doesn’t change what you see—to reflect changes onto the canvas, you need to use the updatePixels() function after the set() call.
 
+Pixel Array
+
+The pixels array is a special data structure that enables us to access and manipulate pixel data—whether in the canvas or in individual images or videos. The get() and set() functions are actually functions that make working with pixels array easier, but slower.
+
+We normally think of an image as a two-dimensional matrix—an array of arrays—with each pixel having a red, green, blue, and alpha (RGBA) value.
+
+The pixels array is a representation of all those pixels, flattened down to a single list. Starting from the first pixel and moving left-to-right by rows to the last pixel, pixels stores the RGBA values for each pixel into one, single array. The one-dimensional array format, while harder to work with, makes accessing the data fast.
+
+In some cases, the pixels array will be affected by pixel density. The pixel density in a p5.js sketch depends on your computer monitor—many high-resolution monitors treat a single pixel on the screen as multiple smaller pixels, creating a sharper image—accordingly, the number of elements in the pixels array factors in that density.
+
+    - pixelDensity()
+      - One quirk of setting a different pixel density using the pixelDensity() function is that it erases everything you drew on the canvas before calling it. In most cases, it’s a good idea to call it first thing in the setup() function, before any other code.
+
+    - loadPixels()
+      - loads the pixels in a canvas, populating the built-in pixels variable.
+      - Note that when dealing with videos (or animated GIFs), it’s better to call the loadPixels() function in the draw() loop—you likely want to work with the latest frame.
+
+    Loading the data in the pixels array takes time—which can explain why the pixels array isn’t just available by default. In fact, the get() and set() functions both load the pixels every single time they’re called—which is why calling them a lot slows down the sketch significantly.
+
+    In contrast, accessing the entire pixels array requires loading pixels just once—which speeds up the process a lot and will allow us to do more wide-scale manipulations!
+
+    working with the pixels array can potentially slow down your sketch, especially if you:
+
+      - Load and manipulate the pixels array of high-resolution images or videos
+      - Load and manipulate the pixels array in the draw() loop.
+      - Print the pixels array to the console (we did it as a demonstration above, but this can really affect performance!)
+
+Manipulating Pixel Array
+
+Once we have the pixels array, we need to know how to read and write to it. That requires correctly indexing into it to get the color values for each pixel.
+
+Because each pixel has four color values—starting with red—we can use the following equation to find the index of the red value for a pixel at location (x,y), on a canvas that’s width pixels wide.
+
+`let indexOfRed = (x + y * width) * 4;` //TODO: WHY
+
+With the index of the red value, we can then get each color value, keeping in mind the R-G-B-A sequence.
+
+Again, we must call the .updatePixels() method (or updatePixels() function, if we’re manipulating the canvas) to reflect changes.
+
 Learnings: codeacademy
 
 Wall Drawing Projects:
@@ -203,3 +242,8 @@ https://aiartists.org/generative-art-design
 
 Animation Exercise:
 Bouncing a ball and change colour, size etc
+
+Projects/Exercises to find information about:
+Creative coding with webcams:
+
+Interactive Video Sculture
