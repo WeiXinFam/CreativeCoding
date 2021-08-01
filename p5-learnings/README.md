@@ -174,6 +174,24 @@ While the key variable can detect both uppercase and lowercase characters, the k
   - To play a video, you can use the .play() method
   - To display the video directly within the p5 sketch, we can reuse the image() function
   - To hide the original HTML video element, we can use the .hide() method
+  - Whereas the .play() method only plays a video once, the .loop() method will play a video and loop it infinitely.
+    - One of them is that calling .play() or .loop() way too many times, such as in every iteration of the draw() loop, can cause errors. In general, it’s best to call them in setup(), or call them in response to user input, like mouse clicks.
+  - To stop a playing or looping video, use the .stop() method.
+  - To pause the video at the current frame—so that you can later resume it where you left off—use the .pause() method
+  - To change the volume of the video’s sound, use the .volume() method. It takes in a decimal number ranging from 0 to 1, with 0 being no volume and 1 being maximum volume.
+- Filters in p5.js work in two ways: across the entire canvas and applied to individual images.To apply a filter across the canvas, use the filter() function. It requires the type of filter, which can be one of eight different types as defined by p5.js. We can’t, however, apply filters to individual video elements (though you could instead draw a video to the canvas, then add a filter to the entire canvas).
+  - GRAY
+  - POSTERIZE (2,255)
+  - INVERT
+  - A weakness of the filter() function is its slow performance—especially when called frequently.
+
+Pixel Manipulation
+
+- get() : The get() function accesses the color of a specific pixel on the canvas. When given a pixel location, it returns the color of that pixel as an array of four numbers, representing the red, green, blue, and alpha (RGBA) values.
+  - Alternatively, the get() function also can retrieve regions of the canvas, returning them as a p5.js image element.
+  - When provided no arguments, it retrieves the entire canvas as a p5.js image element.
+- set(): The set() function sets a pixel at a given location on the canvas to a new color.
+  - Just calling the set() function doesn’t change what you see—to reflect changes onto the canvas, you need to use the updatePixels() function after the set() call.
 
 Learnings: codeacademy
 
