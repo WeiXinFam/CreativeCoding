@@ -4,7 +4,7 @@ https://www.artsy.net/artist-series/sol-lewitt-wall-drawings
 
 To-Do
 
-1. Wall Drawing #391
+1. (DONE) Wall Drawing #391
 2. Wall Drawing #1112
 3. Wall Drawing #328
 4. Wall Drawing #413
