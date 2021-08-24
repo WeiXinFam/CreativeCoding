@@ -12,16 +12,29 @@ function setup() {
 }
 
 function draw() {
-  let i = 0;
-  while (i < width) {
-    if (i == 0) {
-      recursiveFirstRow(0, 0, initialLength, rectWidth);
-    }
-    recursiveFirstRow((i += initialLength), 0, initialLength, rectWidth);
-  }
+  recursiveDrawHorizontal(0, 0);
+  recursiveDrawHorizontal(0, height - rectWidth);
+  recursiveDrawVertical(0, 0);
+  recursiveDrawVertical(width - rectWidth, 0);
   noLoop();
 }
 
+function recursiveDrawHorizontal(posX, posY) {
+  while (posX < width) {
+    if (posX == 0) {
+      recursiveFirstRow(posX, posY, initialLength, rectWidth);
+    }
+    recursiveFirstRow((posX += initialLength), posY, initialLength, rectWidth);
+  }
+}
+
+function recursiveDrawVertical(posX, posY) {
+  while (posY < height) {
+    recursiveFirstRow(posX, (posY += rectWidth), rectWidth, initialLength);
+  }
+}
+
+// TODO: Renamin function
 function recursiveFirstRow(posX, posY, length, width) {
   while (previousColor === currentColor) {
     console.log("Different color", currentColor);
