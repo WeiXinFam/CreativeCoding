@@ -14,30 +14,38 @@ function setup() {
 function draw() {
   recursiveDrawHorizontal(0, 0);
   recursiveDrawHorizontal(0, height - rectWidth);
-  recursiveDrawVertical(0, 0);
+  recursiveDrawVertical(0, rectWidth);
   recursiveDrawVertical(width - rectWidth, 0);
   noLoop();
 }
 
 function recursiveDrawHorizontal(posX, posY) {
+  let randLth;
+  let continuedX;
   while (posX < width) {
     if (posX == 0) {
-      recursiveFirstRow(posX, posY, initialLength, rectWidth);
+      randLth = randomLength(initialLength, rectWidth);
+      recursiveFirstRow(posX, posY, randLth, rectWidth);
+      posX += randLth;
     }
-    recursiveFirstRow((posX += initialLength), posY, initialLength, rectWidth);
+    randLth = randomLength(initialLength, rectWidth);
+    // console.log("continued " + continuedX);
+    recursiveFirstRow(posX, posY, randLth, rectWidth);
+    posX += randLth;
   }
 }
 
 function recursiveDrawVertical(posX, posY) {
-  while (posY < height) {
-    recursiveFirstRow(posX, (posY += rectWidth), rectWidth, initialLength);
+  while (posY < height - rectWidth) {
+    randLth = randomLength(initialLength, rectWidth);
+    recursiveFirstRow(posX, posY, rectWidth, initialLength);
+    posY += randLth;
   }
 }
 
 // TODO: Renamin function
 function recursiveFirstRow(posX, posY, length, width) {
   while (previousColor === currentColor) {
-    console.log("Different color", currentColor);
     currentColor = colors[Math.floor(Math.random() * colors.length)];
   }
 
@@ -45,4 +53,10 @@ function recursiveFirstRow(posX, posY, length, width) {
   previousColor = currentColor;
   noStroke();
   rect(posX, posY, length, width);
+}
+
+function randomLength(min, max) {
+  let numberGenerated = Math.floor(Math.random() * (max - min + 1)) + min;
+  console.log("Generated number", numberGenerated);
+  return numberGenerated;
 }
