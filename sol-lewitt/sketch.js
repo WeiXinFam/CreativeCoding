@@ -12,17 +12,29 @@ function setup() {
 }
 
 function draw() {
-  recursiveDrawHorizontal(0, 0);
-  recursiveDrawHorizontal(0, height - rectWidth);
-  recursiveDrawVertical(0, rectWidth);
-  recursiveDrawVertical(width - rectWidth, 0);
+  // recursiveDrawHorizontal(0, 0);
+  // recursiveDrawHorizontal(0, height - rectWidth);
+  // recursiveDrawHorizontal(rectWidth, rectWidth);
+  // recursiveDrawHorizontal(rectWidth, height - 2 * rectWidth);
+  // recursiveDrawVertical(0, rectWidth);
+  // recursiveDrawVertical(width - rectWidth, 0);
+  // recursiveDrawVertical(rectWidth, 2 * rectWidth);
+  // recursiveDrawVertical(width - 2 * rectWidth, rectWidth);
+  let i = 0;
+  let j = 0;
+  while (i < 5) {
+    recursiveDrawHorizontal(rectWidth * i, rectWidth * i);
+    recursiveDrawHorizontal(rectWidth * i, height - (i + 1) * rectWidth);
+    i++;
+  }
   noLoop();
 }
 
 function recursiveDrawHorizontal(posX, posY) {
   let randLth;
   let continuedX;
-  while (posX < width) {
+  let initalPosX = posX;
+  while (posX < width - initalPosX) {
     if (posX == 0) {
       randLth = randomLength(initialLength, rectWidth);
       recursiveFirstRow(posX, posY, randLth, rectWidth);
