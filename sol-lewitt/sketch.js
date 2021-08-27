@@ -13,7 +13,7 @@ function setup() {
 
 function draw() {
   let i = 0;
-  while (i < 2) {
+  while (i < 20) {
     recursiveDrawHorizontal(rectWidth * i, rectWidth * i);
     recursiveDrawHorizontal(rectWidth * i, height - (i + 1) * rectWidth);
     recursiveDrawVertical(rectWidth * i, rectWidth * (i + 1));
@@ -34,7 +34,7 @@ function recursiveDrawHorizontal(posX, posY) {
       randLth = width - initalPosX - posX;
     }
 
-    recursiveFirstRow(posX, posY, randLth, rectWidth);
+    drawBlocks(posX, posY, randLth, rectWidth);
     posX += randLth;
   }
 }
@@ -50,13 +50,13 @@ function recursiveDrawVertical(posX, posY) {
       randLth = height - initalPosY - posY;
     }
 
-    recursiveFirstRow(posX, posY, rectWidth, randLth);
+    drawBlocks(posX, posY, rectWidth, randLth);
     posY += randLth;
   }
 }
 
 // TODO: Renamin function
-function recursiveFirstRow(posX, posY, length, width) {
+function drawBlocks(posX, posY, length, width) {
   while (previousColor === currentColor) {
     currentColor = colors[Math.floor(Math.random() * colors.length)];
   }
@@ -72,3 +72,6 @@ function randomLength(min, max) {
   console.log("Generated number", numberGenerated);
   return numberGenerated;
 }
+
+//TODO: Function to keep track of the colours for two lines so no overlapping
+//TODO: Fix colour scheme
