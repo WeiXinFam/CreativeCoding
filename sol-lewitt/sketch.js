@@ -1,77 +1,20 @@
-let initialLength = 50;
-const rectWidth = 20;
-const colors = ["red", "yellow", "orange", "blue", "green", "purple"];
-
-//TODO: Think of a better way around this
-let currentColor = "red";
-let previousColor = "yellow";
-
+let spacing = 10;
 function setup() {
   createCanvas(800, 800);
-  background(200);
+  background(0, 0, 0);
 }
 
 function draw() {
+  circle(width / 2, height / 2, width / 2);
+  stroke(0);
   let i = 0;
   while (i < 20) {
-    recursiveDrawHorizontal(rectWidth * i, rectWidth * i);
-    recursiveDrawHorizontal(rectWidth * i, height - (i + 1) * rectWidth);
-    recursiveDrawVertical(rectWidth * i, rectWidth * (i + 1));
-    recursiveDrawVertical(width - rectWidth * (i + 1), rectWidth * i);
+    let posXStart = width / 2 - spacing * i;
+    let posXEnd = width / 2 + spacing * i;
+    line(posXStart, height / 2 + 20, posXStart, height / 2 - 20);
+    line(posXEnd, height / 2 + 20, posXEnd, height / 2 - 20);
     i++;
+    console.log(i);
   }
   noLoop();
 }
-
-function recursiveDrawHorizontal(posX, posY) {
-  let randLth;
-  let initalPosX = posX;
-  while (posX < width - initalPosX) {
-    randLth = randomLength(initialLength, rectWidth);
-
-    // Ensures the width is exactly as intended for
-    if (posX + randLth > width - initalPosX) {
-      randLth = width - initalPosX - posX;
-    }
-
-    drawBlocks(posX, posY, randLth, rectWidth);
-    posX += randLth;
-  }
-}
-
-function recursiveDrawVertical(posX, posY) {
-  let randLth;
-  let initalPosY = posY;
-  while (posY < height - initalPosY) {
-    randLth = randomLength(initialLength, rectWidth);
-
-    // Ensures the width is exactly as intended for
-    if (posY + randLth > height - initalPosY) {
-      randLth = height - initalPosY - posY;
-    }
-
-    drawBlocks(posX, posY, rectWidth, randLth);
-    posY += randLth;
-  }
-}
-
-// TODO: Renamin function
-function drawBlocks(posX, posY, length, width) {
-  while (previousColor === currentColor) {
-    currentColor = colors[Math.floor(Math.random() * colors.length)];
-  }
-
-  fill(currentColor);
-  previousColor = currentColor;
-  noStroke();
-  rect(posX, posY, length, width);
-}
-
-function randomLength(min, max) {
-  let numberGenerated = Math.floor(Math.random() * (max - min + 1)) + min;
-  console.log("Generated number", numberGenerated);
-  return numberGenerated;
-}
-
-//TODO: Function to keep track of the colours for two lines so no overlapping
-//TODO: Fix colour scheme
