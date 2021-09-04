@@ -11,9 +11,12 @@ We will use renderer to render the scene with camera
 ### Camera
 
 1. PerspectiveCamera
+
    1. The field of View(FOV): extent of the scene that is seen on the display at any given moment. The value is in degrees.
    1. The aspect ratio: Almost always want to use the width of the element divided by the height, or you'll get the same result as when you play old movies on a widescreen TV - the image looks squished
    1. near and far clipping plane: objects further away from the camera than the value of far or closer than near won't be rendered.
+
+   - Note: we need to set the camera position and where the secret is looking at.
 
 ### Renderer
 
@@ -32,21 +35,34 @@ By default, when we call scene.add(), the thing we add will be added to the coor
 
 For creating an object:
 
-- Geometry
 - Material
-- Mesh
+- Geometry
+- Mesh/Line
 
 ### Shapes
 
 1. Cube: BoxGeometry
    This is an object that contains all the points (vertices) and fill (faces) of the cube.
+2. Line: Vector3 amd BufferGeometry
+   Note that lines are drawn between each consecutive pair of vertices, but not between the first and last (the line is not closed.)
 
 ### Colour
 
 1. Colour: Material
    All materials take an object of properties which will be applied to them.
    1. MeshBasicMaterial
+   1. LineBasicMaterial or LineDashedMaterial
 
-### Mesh
+### Mesh/Line
 
 A mesh is an object that takes a geometry, and applies a material to it, which we then can insert to our scene, and move freely around.
+
+### Questions
+
+1. Static Hosting or CDN
+1. [ES Module] (https://eloquentjavascript.net/10_modules.html#h_hF2FmOVxw7)
+1. Bundler: Webpack
+1. Why not all features are accessed through the three entrypoint
+1. WebGL
+1. NGINX
+1. Servez
